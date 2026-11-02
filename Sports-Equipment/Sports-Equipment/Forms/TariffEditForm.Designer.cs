@@ -48,7 +48,7 @@
             // 
             // TextBoxName
             // 
-            TextBoxName.Location = new Point(12, 61);
+            TextBoxName.Location = new Point(168, 24);
             TextBoxName.Name = "TextBoxName";
             TextBoxName.Size = new Size(125, 27);
             TextBoxName.TabIndex = 1;
@@ -56,7 +56,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(245, 27);
+            label2.Location = new Point(49, 79);
             label2.Name = "label2";
             label2.Size = new Size(48, 20);
             label2.TabIndex = 2;
@@ -65,7 +65,7 @@
             // NumericUpDownPrice
             // 
             NumericUpDownPrice.DecimalPlaces = 2;
-            NumericUpDownPrice.Location = new Point(199, 62);
+            NumericUpDownPrice.Location = new Point(168, 77);
             NumericUpDownPrice.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             NumericUpDownPrice.Name = "NumericUpDownPrice";
             NumericUpDownPrice.Size = new Size(150, 27);

@@ -52,7 +52,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(224, 32);
+            label2.Location = new Point(31, 83);
             label2.Name = "label2";
             label2.Size = new Size(63, 20);
             label2.TabIndex = 1;
@@ -61,7 +61,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(434, 32);
+            label3.Location = new Point(31, 132);
             label3.Name = "label3";
             label3.Size = new Size(38, 20);
             label3.TabIndex = 2;
@@ -69,14 +69,14 @@
             // 
             // TextBoxName
             // 
-            TextBoxName.Location = new Point(12, 76);
+            TextBoxName.Location = new Point(162, 29);
             TextBoxName.Name = "TextBoxName";
             TextBoxName.Size = new Size(125, 27);
             TextBoxName.TabIndex = 3;
             // 
             // TextBoxSize
             // 
-            TextBoxSize.Location = new Point(195, 76);
+            TextBoxSize.Location = new Point(162, 80);
             TextBoxSize.Name = "TextBoxSize";
             TextBoxSize.Size = new Size(125, 27);
             TextBoxSize.TabIndex = 4;
@@ -85,7 +85,7 @@
             // 
             ComboBoxType.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxType.FormattingEnabled = true;
-            ComboBoxType.Location = new Point(380, 75);
+            ComboBoxType.Location = new Point(162, 132);
             ComboBoxType.Name = "ComboBoxType";
             ComboBoxType.Size = new Size(151, 28);
             ComboBoxType.TabIndex = 5;
@@ -93,7 +93,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(616, 32);
+            label4.Location = new Point(31, 200);
             label4.Name = "label4";
             label4.Size = new Size(86, 20);
             label4.TabIndex = 6;
@@ -102,7 +102,7 @@
             // CheckedListBoxCondition
             // 
             CheckedListBoxCondition.FormattingEnabled = true;
-            CheckedListBoxCondition.Location = new Point(591, 76);
+            CheckedListBoxCondition.Location = new Point(162, 200);
             CheckedListBoxCondition.Name = "CheckedListBoxCondition";
             CheckedListBoxCondition.Size = new Size(150, 114);
             CheckedListBoxCondition.TabIndex = 7;
