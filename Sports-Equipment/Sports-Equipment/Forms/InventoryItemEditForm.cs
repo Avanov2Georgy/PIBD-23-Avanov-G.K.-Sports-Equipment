@@ -15,8 +15,8 @@ namespace Sports_Equipment.Forms
 {
     public partial class InventoryItemEditForm : Form
     {
-        private readonly IInventoryItemRepository _inventoryRepository;
-        private int? _itemId;
+        private readonly IInventoryItemRepository _inventoryRepository; // Внедрение зависимости (репозитория) через конструктор
+        private int? _itemId; // Хранит ID редактируемой записи. Если null — создается новая запись.      
 
         public InventoryItemEditForm(IInventoryItemRepository inventoryRepository)
         {
@@ -33,7 +33,7 @@ namespace Sports_Equipment.Forms
             }
         }
 
-        public int InventoryItemId
+        public int InventoryItemId // Свойство для передачи ID из формы списка при редактировании.
         {
             set
             {
@@ -42,7 +42,7 @@ namespace Sports_Equipment.Forms
             }
         }
 
-        private void LoadItemData(int id)
+        private void LoadItemData(int id) // Загрузка данных в элементы управления формы при редактировании.
         {
             var item = _inventoryRepository.ReadInventoryItemById(id);
             if (item != null)
@@ -52,6 +52,7 @@ namespace Sports_Equipment.Forms
                 ComboBoxType.SelectedItem = item.Type;
 
                 // Восстанавливаем галочки для флагов
+                // Проверяем через побитовое И, входит ли конкретный флаг в общее значение Condition.
                 for (int i = 0; i < CheckedListBoxCondition.Items.Count; i++)
                 {
                     var enumValue = (InventoryCondition)CheckedListBoxCondition.Items[i];
@@ -67,9 +68,11 @@ namespace Sports_Equipment.Forms
         {
             try
             {
+                // Валидация: проверка на пустые текстовые поля
                 if (string.IsNullOrWhiteSpace(TextBoxName.Text) || string.IsNullOrWhiteSpace(TextBoxSize.Text))
                     throw new Exception("Заполните текстовые поля (Название и Размер)!");
 
+                // Валидация: проверка выбора типа
                 if (ComboBoxType.SelectedItem == null)
                     throw new Exception("Выберите тип инвентаря!");
 
@@ -83,9 +86,10 @@ namespace Sports_Equipment.Forms
                 if (condition == InventoryCondition.None)
                     throw new Exception("Выберите хотя бы одно состояние инвентаря!");
 
-                int currentId = _itemId ?? 0;
+                int currentId = _itemId ?? 0; // Если _itemId == null (создание), передаем 0. Иначе передаем реальный ID.
                 var item = InventoryItem.CreateEntity(currentId, TextBoxName.Text, (InventoryType)ComboBoxType.SelectedItem, TextBoxSize.Text, condition);
 
+                // Вызываем Update или Create в зависимости от режима работы формы
                 if (_itemId.HasValue)
                 {
                     _inventoryRepository.UpdateInventoryItem(item);

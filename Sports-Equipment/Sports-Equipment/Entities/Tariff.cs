@@ -8,9 +8,12 @@ namespace Sports_Equipment.Entities
 {
     public class Tariff
     {
+        // Приватные сеттеры
         public int Id { get; private set; }
         public string Name { get; private set; } = string.Empty;
-        public decimal Price { get; private set; }
+
+        // decimal используется для точных цен
+        public decimal Price { get; private set; } 
 
         public static Tariff CreateEntity(int id, string name, decimal price)
         {

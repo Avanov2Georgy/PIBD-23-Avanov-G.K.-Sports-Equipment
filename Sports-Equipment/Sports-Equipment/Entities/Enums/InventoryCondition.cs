@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sports_Equipment.Entities.Enums
 {
-    [Flags]
+    [Flags] // значения можно комбинировать через побитовое
     public enum InventoryCondition
     {
         None = 0,
