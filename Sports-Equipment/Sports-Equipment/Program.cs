@@ -21,7 +21,7 @@ namespace Sports_Equipment
         {
             var container = new UnityContainer();
 
-            // Регистрация зависимостей (Интерфейс -> Класс-заглушка)
+            // Регистрация зависимостей (Интерфейс -> Класс-заглушка(реализация))
             container.RegisterType<IClientRepository, ClientRepository>(new TransientLifetimeManager());
             container.RegisterType<ITariffRepository, TariffRepository>(new TransientLifetimeManager());
             container.RegisterType<IInventoryItemRepository, InventoryItemRepository>(new TransientLifetimeManager());
