@@ -87,7 +87,7 @@
             Controls.Add(ButtonAdd);
             Controls.Add(DataGridViewTariffs);
             Name = "TariffListForm";
-            Text = "TariffListForm";
+            Text = "Список тарифов";
             ((System.ComponentModel.ISupportInitialize)DataGridViewTariffs).EndInit();
             ResumeLayout(false);
         }

@@ -143,7 +143,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "InventoryItemEditForm";
-            Text = "InventoryItemEditForm";
+            Text = "Добавление/Редактирование инвентаря";
             ResumeLayout(false);
             PerformLayout();
         }

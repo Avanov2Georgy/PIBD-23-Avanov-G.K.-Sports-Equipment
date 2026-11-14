@@ -7,5 +7,6 @@ namespace Sports_Equipment.Repositories
     {
         IEnumerable<Rental> ReadRentals();
         void CreateRental(Rental rental);
+        void DeleteRental(int id);
     }
 }

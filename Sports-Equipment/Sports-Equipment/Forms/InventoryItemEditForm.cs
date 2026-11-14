@@ -24,13 +24,21 @@ namespace Sports_Equipment.Forms
             _inventoryRepository = inventoryRepository ?? throw new ArgumentNullException(nameof(inventoryRepository));
 
             // Заполняем ComboBox значениями обычного перечисления (Тип)
-            ComboBoxType.DataSource = Enum.GetValues(typeof(InventoryType));
+            ComboBoxType.Items.Clear();
+            ComboBoxType.Items.Add("Нет");
+            ComboBoxType.Items.Add("Лыжи");
+            ComboBoxType.Items.Add("Сноуборд");
+            ComboBoxType.Items.Add("Велосипед");
+            ComboBoxType.SelectedIndex = 0;
+
+
+
 
             // Заполняем CheckedListBox значениями флагового перечисления (Состояние)
-            foreach (var condition in Enum.GetValues(typeof(InventoryCondition)))
-            {
-                CheckedListBoxCondition.Items.Add(condition);
-            }
+            CheckedListBoxCondition.Items.Clear();
+            CheckedListBoxCondition.Items.Add("Хорошее");
+            CheckedListBoxCondition.Items.Add("Требует ремонта");
+            CheckedListBoxCondition.Items.Add("Сломано");
         }
 
         public int InventoryItemId // Свойство для передачи ID из формы списка при редактировании.
@@ -73,21 +81,20 @@ namespace Sports_Equipment.Forms
                     throw new Exception("Заполните текстовые поля (Название и Размер)!");
 
                 // Валидация: проверка выбора типа
-                if (ComboBoxType.SelectedItem == null)
+                if (ComboBoxType.SelectedIndex < 0)
                     throw new Exception("Выберите тип инвентаря!");
 
                 // Собираем выбранные флаги обратно в одно значение
                 InventoryCondition condition = InventoryCondition.None;
-                foreach (var checkedItem in CheckedListBoxCondition.CheckedItems)
-                {
-                    condition |= (InventoryCondition)checkedItem;
-                }
+                if (CheckedListBoxCondition.GetItemChecked(0)) condition |= InventoryCondition.Good;
+                if (CheckedListBoxCondition.GetItemChecked(1)) condition |= InventoryCondition.NeedsRepair;
+                if (CheckedListBoxCondition.GetItemChecked(2)) condition |= InventoryCondition.Broken;
 
                 if (condition == InventoryCondition.None)
                     throw new Exception("Выберите хотя бы одно состояние инвентаря!");
 
                 int currentId = _itemId ?? 0; // Если _itemId == null (создание), передаем 0. Иначе передаем реальный ID.
-                var item = InventoryItem.CreateEntity(currentId, TextBoxName.Text, (InventoryType)ComboBoxType.SelectedItem, TextBoxSize.Text, condition);
+                var item = InventoryItem.CreateEntity(currentId, TextBoxName.Text, (InventoryType)ComboBoxType.SelectedIndex, TextBoxSize.Text, condition);
 
                 // Вызываем Update или Create в зависимости от режима работы формы
                 if (_itemId.HasValue)

@@ -137,7 +137,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "RentalAddForm";
-            Text = "RentalAddForm";
+            Text = "Оформление выдачи";
             ((System.ComponentModel.ISupportInitialize)DataGridViewItems).EndInit();
             ResumeLayout(false);
             PerformLayout();

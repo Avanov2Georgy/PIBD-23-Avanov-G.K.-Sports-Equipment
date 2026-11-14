@@ -120,7 +120,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "ClientEditForm";
-            Text = "ClientEditForm";
+            Text = "Добавление/Редактирование клиента";
             ResumeLayout(false);
             PerformLayout();
         }

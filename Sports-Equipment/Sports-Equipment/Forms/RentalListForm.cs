@@ -48,6 +48,23 @@ namespace Sports_Equipment
         {
             _container.Resolve<RentalAddForm>().ShowDialog(); // Контейнер сам создаст RentalAddForm и внедрит в неё все 4 репозитория
             LoadList(); // Обновляем список после закрытия формы
-        } 
+        }
+
+        private void ButtonDelete_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewRentals.SelectedRows.Count < 1)
+            {
+                MessageBox.Show("Пожалуйста, выберите выдачу для удаления.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int id = Convert.ToInt32(DataGridViewRentals.SelectedRows[0].Cells["Id"].Value);
+
+            if (MessageBox.Show("Вы уверены, что хотите удалить эту выдачу?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _rentalRepository.DeleteRental(id);
+                LoadList();
+            }
+        }
     }
 }

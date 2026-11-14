@@ -103,7 +103,7 @@
             Controls.Add(TextBoxName);
             Controls.Add(label1);
             Name = "TariffEditForm";
-            Text = "TariffEditForm";
+            Text = "Добавление/Редактирование тарифа";
             ((System.ComponentModel.ISupportInitialize)NumericUpDownPrice).EndInit();
             ResumeLayout(false);
             PerformLayout();

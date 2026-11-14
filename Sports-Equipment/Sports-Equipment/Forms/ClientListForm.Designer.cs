@@ -87,7 +87,7 @@
             Controls.Add(ButtonAdd);
             Controls.Add(DataGridViewClients);
             Name = "ClientListForm";
-            Text = "ClientListForm";
+            Text = "Список клиентов";
             ((System.ComponentModel.ISupportInitialize)DataGridViewClients).EndInit();
             ResumeLayout(false);
         }

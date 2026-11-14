@@ -8,5 +8,6 @@ namespace Sports_Equipment.Repositories.Implementations
     {
         public void CreateRental(Rental rental) { }
         public IEnumerable<Rental> ReadRentals() => [];
+        public void DeleteRental(int id) { }
     }
 }

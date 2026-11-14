@@ -87,7 +87,7 @@
             Controls.Add(ButtonAdd);
             Controls.Add(DataGridViewInventory);
             Name = "InventoryItemListForm";
-            Text = "InventoryItemListForm";
+            Text = "Список инвентаря";
             ((System.ComponentModel.ISupportInitialize)DataGridViewInventory).EndInit();
             ResumeLayout(false);
         }

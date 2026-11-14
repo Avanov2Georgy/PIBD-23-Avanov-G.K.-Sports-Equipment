@@ -30,6 +30,7 @@
         {
             DataGridViewRentals = new DataGridView();
             ButtonAdd = new Button();
+            ButtonDelete = new Button();
             ((System.ComponentModel.ISupportInitialize)DataGridViewRentals).BeginInit();
             SuspendLayout();
             // 
@@ -55,15 +56,26 @@
             ButtonAdd.UseVisualStyleBackColor = true;
             ButtonAdd.Click += ButtonAdd_Click;
             // 
+            // ButtonDelete
+            // 
+            ButtonDelete.Location = new Point(224, 384);
+            ButtonDelete.Name = "ButtonDelete";
+            ButtonDelete.Size = new Size(153, 44);
+            ButtonDelete.TabIndex = 2;
+            ButtonDelete.Text = "Удалить";
+            ButtonDelete.UseVisualStyleBackColor = true;
+            ButtonDelete.Click += ButtonDelete_Click;
+            // 
             // RentalListForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(ButtonDelete);
             Controls.Add(ButtonAdd);
             Controls.Add(DataGridViewRentals);
             Name = "RentalListForm";
-            Text = "RentalListForm";
+            Text = "Список выдач";
             ((System.ComponentModel.ISupportInitialize)DataGridViewRentals).EndInit();
             ResumeLayout(false);
         }
@@ -72,5 +84,6 @@
 
         private DataGridView DataGridViewRentals;
         private Button ButtonAdd;
+        private Button ButtonDelete;
     }
 }
